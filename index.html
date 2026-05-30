@@ -45,388 +45,126 @@
     --light-bg: #f8fafc;         /* 极简珍珠白 */
     --text-main: #0f172a;        /* 晶石黑 */
     --text-muted: #64748b;       /* 烟雨灰 */
+    --gold: #f59e0b;             /* 评价金星色 */
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body{
     font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
-    background: var(--light-bg);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
+    background: var(--light-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden;
 }
 
 /* 导航栏：Apple 级别超清毛玻璃 */
 header{
-    background: rgba(3, 7, 18, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 999; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-
-.logo{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.logo img{
-    height: 48px;
-    filter: drop-shadow(0 0 12px var(--primary)); /* 头像/Logo微光效果 */
-}
-
+.logo{ display: flex; align-items: center; gap: 14px; }
+.logo img{ height: 48px; filter: drop-shadow(0 0 12px var(--primary)); }
 .logo h2{
-    color: #fff;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff; font-size: 26px; font-weight: 700; letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+nav a{ color: #94a3b8; text-decoration: none; margin-left: 35px; font-size: 15px; font-weight: 500; position: relative; padding: 4px 0; transition: color 0.3s ease; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease; }
+nav a:hover{ color: #fff; }
+nav a:hover::after, nav a.active::after{ width: 100%; }
+nav a.active { color: #fff; }
 
-nav a{
-    color: #94a3b8;
-    text-decoration: none;
-    margin-left: 35px;
-    font-size: 15px;
-    font-weight: 500;
-    position: relative;
-    padding: 4px 0;
-    transition: color 0.3s ease;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease;
-}
-
-nav a:hover{
-    color: #fff;
-}
-
-nav a:hover::after, nav a.active::after{
-    width: 100%;
-}
-
-nav a.active {
-    color: #fff;
-}
-
-/* 巨幕（Banner）：未来主义赛博质感图 */
+/* 巨幕（Banner） */
 .banner{
-    background: 
-        linear-gradient(180deg, rgba(3,7,18,0.7) 0%, rgba(3,7,18,0.9) 100%),
-        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 180px 20px 160px 20px;
-    text-align: center;
-    color: #fff;
+    background: linear-gradient(180deg, rgba(3,7,18,0.7) 0%, rgba(3,7,18,0.9) 100%), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover; background-position: center; background-attachment: fixed; padding: 180px 20px 160px 20px; text-align: center; color: #fff;
 }
-
 .banner h1{
-    font-size: 58px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    letter-spacing: -1.5px;
-    background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #a5f3fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 58px; font-weight: 700; margin-bottom: 25px; letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #a5f3fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-
-.banner p{
-    font-size: 22px;
-    max-width: 800px;
-    margin: 0 auto 45px auto;
-    color: #94a3b8;
-    font-weight: 300;
-    line-height: 1.8;
-}
-
-.btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-/* 超高端流光按钮 */
+.banner p{ font-size: 22px; max-width: 800px; margin: 0 auto 45px auto; color: #94a3b8; font-weight: 300; line-height: 1.8; }
+.btn-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
 .btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #3b82f6 100%);
-    background-size: 200% auto;
-    color: #fff;
-    padding: 16px 42px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 25px var(--primary-glow);
-    transition: transform 0.3s, box-shadow 0.3s, background-position 0.5s;
+    display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #3b82f6 100%); background-size: 200% auto; color: #fff; padding: 16px 42px; border-radius: 50px; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 4px 25px var(--primary-glow); transition: transform 0.3s, box-shadow 0.3s, background-position 0.5s;
 }
+.btn:hover{ transform: translateY(-3px); background-position: right center; box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6); }
+.btn.btn-secondary { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(5px); box-shadow: none; color: #fff; }
+.btn.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); }
 
-.btn:hover{
-    transform: translateY(-3px);
-    background-position: right center;
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
-}
+/* 通用布局 */
+.section{ padding: 120px 8%; }
+.bg-white { background: #fff; }
+.bg-dark { background: var(--dark-bg); color: #fff; }
+.title{ text-align: center; margin-bottom: 70px; }
+.title h2{ font-size: 40px; font-weight: 700; color: var(--text-main); letter-spacing: 1px; }
+.title h2::after { content: ''; display: block; width: 50px; height: 4px; background: linear-gradient(to right, var(--primary), var(--accent)); border-radius: 10px; margin: 15px auto 0 auto; }
+.bg-dark .title h2 { color: #fff; }
 
-.btn.btn-secondary {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    box-shadow: none;
-    color: #fff;
-}
+/* 核心生态卡片区 */
+.cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+.card{ background: #fff; padding: 50px 40px; border-radius: 28px; box-shadow: 0 10px 50px rgba(15, 23, 42, 0.03); border: 1px solid rgba(15, 23, 42, 0.04); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+.card::before { content: ''; position: absolute; inset: 0; border-radius: 28px; padding: 2px; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.4s ease; }
+.card:hover{ transform: translateY(-10px); box-shadow: 0 30px 60px rgba(37, 99, 235, 0.12); }
+.card:hover::before { opacity: 1; }
+.card-icon { font-size: 38px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; display: inline-block; }
+.card h3{ font-size: 24px; margin-bottom: 18px; color: var(--text-main); font-weight: 600; }
+.card p{ color: var(--text-muted); font-size: 15px; line-height: 1.8; }
 
-.btn.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 25px rgba(255,255,255,0.05);
-}
+/* ⚡ 新增：手机卡购买流程样式 */
+.process-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+.process-step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 30px 20px; text-align: center; position: relative; transition: all 0.3s; }
+.process-step:hover { background: rgba(255,255,255,0.06); border-color: var(--primary); transform: translateY(-5px); }
+.step-num { font-size: 44px; font-weight: 800; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: absolute; top: 10px; right: 20px; font-family: 'Inter', sans-serif; }
+.process-step img { width: 90px; height: 90px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)); border-radius: 12px; }
+.process-step h3 { font-size: 18px; color: #fff; font-weight: 600; margin-bottom: 5px; }
+.process-step p a { color: var(--accent); text-decoration: none; font-size: 13px; }
+.process-step p a:hover { text-decoration: underline; }
 
-/* 通用排版架构 */
-.section{
-    padding: 120px 8%;
-}
+/* 特性区 */
+.feature-box{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+.feature-item{ background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%); border: 1px solid rgba(255, 255, 255, 0.05); padding: 45px 30px; border-radius: 24px; text-align: center; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.feature-item:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(59, 130, 246, 0.5); transform: translateY(-5px); }
+.feature-item i { font-size: 32px; background: linear-gradient(135deg, #60a5fa 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 22px; display: block; }
+.feature-item h3{ font-size: 20px; margin-bottom: 14px; color: #fff; font-weight: 600; }
+.feature-item p { color: #94a3b8; font-size: 14px; line-height: 1.6; }
 
-.title{
-    text-align: center;
-    margin-bottom: 70px;
-}
+/* ⚡ 新增：高级好评墙卡片样式 */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.testi-card { background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(15,23,42,0.02); border: 1px solid rgba(15,23,42,0.04); position: relative; }
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 15px; letter-spacing: 2px; }
+.testi-card p { color: #334155; font-size: 15px; line-height: 1.8; font-style: italic; margin-bottom: 25px; }
+.user-info { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 15px; }
+.user-name { font-weight: 600; color: var(--text-main); font-size: 15px; }
+.user-tag { background: rgba(59, 130, 246, 0.08); color: var(--primary); font-size: 12px; padding: 4px 12px; border-radius: 50px; font-weight: 500; }
 
-.title h2{
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--text-main);
-    letter-spacing: 1px;
-}
+/* ⚡ 新增：风琴式高级 Q&A 问答区 */
+.faq-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 25px 30px; transition: all 0.3s; }
+.faq-item:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(37,99,235,0.04); }
+.faq-question { display: flex; gap: 15px; align-items: flex-start; font-size: 18px; font-weight: 600; color: var(--text-main); margin-bottom: 12px; }
+.faq-question span { background: var(--primary); color: #fff; font-size: 13px; padding: 2px 8px; border-radius: 6px; font-family: 'Inter', sans-serif; }
+.faq-answer { display: flex; gap: 15px; align-items: flex-start; font-size: 15px; color: var(--text-muted); line-height: 1.8; padding-left: 5px; }
+.faq-answer span { background: #e2e8f0; color: #475569; font-size: 13px; padding: 2px 8px; border-radius: 6px; font-family: 'Inter', sans-serif; }
 
-.title h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    border-radius: 10px;
-    margin: 15px auto 0 auto;
-}
+/* 联系转化区域 */
+.contact{ text-align: center; padding: 130px 20px; background: #fff; }
+.contact h2{ font-size: 42px; font-weight: 700; margin-bottom: 20px; }
+.contact-info { font-size: 20px; color: var(--text-muted); margin-bottom: 45px; font-weight: 300; }
+.contact-info strong { color: var(--primary); font-weight: 600; }
+.telegram{ background: linear-gradient(135deg, #0088cc 0%, #00a2ed 100%); color: #fff; padding: 18px 55px; border-radius: 50px; display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-size: 17px; font-weight: 600; box-shadow: 0 6px 30px rgba(0, 136, 204, 0.3); transition: all 0.3s; }
+.telegram:hover{ transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 40px rgba(0, 136, 204, 0.5); }
 
-/* 核心生态卡片区：引入超高端悬浮霓虹发光 */
-.cards{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
-}
+/* ⚡ 新增：独立合规免责声明区块 */
+.disclaimer-section { background: #0b0f19; color: #475569; padding: 60px 8%; font-size: 13px; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.03); }
+.disclaimer-container { max-width: 1000px; margin: 0 auto; text-align: justify; }
+.disclaimer-container strong { color: #94a3b8; display: block; margin-bottom: 8px; font-size: 14px; }
 
-.card{
-    background: #fff;
-    padding: 50px 40px;
-    border-radius: 28px;
-    box-shadow: 0 10px 50px rgba(15, 23, 42, 0.03);
-    border: 1px solid rgba(15, 23, 42, 0.04);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-}
+/* 页脚 */
+footer{ background: var(--dark-bg); color: #334155; text-align: center; padding: 40px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); letter-spacing: 1px; }
 
-.card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 28px;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.card:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.12);
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-.card-icon {
-    font-size: 38px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 25px;
-    display: inline-block;
-}
-
-.card h3{
-    font-size: 24px;
-    margin-bottom: 18px;
-    color: var(--text-main);
-    font-weight: 600;
-}
-
-.card p{
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-/* 尊贵深黑特性区（极客范） */
-.feature{
-    background: var(--dark-bg);
-    color: #fff;
-    border-top: 1px solid rgba(255,255,255,0.03);
-}
-
-.feature .title h2 {
-    color: #fff;
-}
-
-.feature-box{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-}
-
-.feature-item{
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 45px 30px;
-    border-radius: 24px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.feature-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(59, 130, 246, 0.5);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-}
-
-.feature-item i {
-    font-size: 32px;
-    background: linear-gradient(135deg, #60a5fa 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 22px;
-    display: block;
-}
-
-.feature-item h3{
-    font-size: 20px;
-    margin-bottom: 14px;
-    color: #fff;
-    font-weight: 600;
-}
-
-.feature-item p {
-    color: #94a3b8;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* 联系转化区域：高端转化留白 */
-.contact{
-    text-align: center;
-    padding: 130px 20px;
-    background: #fff;
-}
-
-.contact h2{
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.contact-info {
-    font-size: 20px;
-    color: var(--text-muted);
-    margin-bottom: 45px;
-    font-weight: 300;
-}
-
-.contact-info strong {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-/* 尊贵电报流光按钮 */
-.telegram{
-    background: linear-gradient(135deg, #0088cc 0%, #00a2ed 100%);
-    color: #fff;
-    padding: 18px 55px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-    box-shadow: 0 6px 30px rgba(0, 136, 204, 0.3);
-    transition: all 0.3s;
-}
-
-.telegram:hover{
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(0, 136, 204, 0.5);
-}
-
-/* 极简高级页脚 */
-footer{
-    background: var(--dark-bg);
-    color: #475569;
-    text-align: center;
-    padding: 40px;
-    font-size: 13px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    letter-spacing: 1px;
-}
-
-/* 全终端响应式顶格优化 */
-@media(max-width:992px){
-    .section { padding: 80px 5%; }
-    header { padding: 15px 5%; }
-    .banner h1 { font-size: 46px; }
-}
-
-@media(max-width:768px){
-    .banner h1{ font-size: 38px; }
-    .banner p{ font-size: 18px; }
-    .logo h2{ font-size: 22px; }
-    nav { display: none; } /* 移动端精简逻辑 */
-    .cards, .feature-box { grid-template-columns: 1fr; }
-}
+/* 全终端响应式优化 */
+@media(max-width:992px){ .section { padding: 80px 5%; } header { padding: 15px 5%; } .banner h1 { font-size: 46px; } }
+@media(max-width:768px){ .banner h1{ font-size: 38px; } .banner p{ font-size: 18px; } .logo h2{ font-size: 22px; } nav { display: none; } .cards, .feature-box, .process-box, .testimonials-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -439,9 +177,8 @@ footer{
     </div>
     <nav>
         <a href="#" class="active">首页</a>
-        <a href="#">实名手机卡</a>
-        <a href="#">大流量卡</a>
-        <a href="#">隐私保护</a>
+        <a href="#process">购买流程</a>
+        <a href="#faq">常见问答</a>
         <a href="#contact">联系客服</a>
     </nav>
 </header>
@@ -478,7 +215,41 @@ footer{
     </div>
 </section>
 
-<section class="section feature">
+<section class="section bg-dark" id="process">
+    <div class="title">
+        <h2>手机卡购买流程</h2>
+    </div>
+    <div class="process-box">
+        <div class="process-step">
+            <div class="step-num">01</div>
+            <img src="step1.png" onerror="this.src='https://images.unsplash.com/photo-1562408590-e32931084e23?w=150'">
+            <h3>挑选电话卡</h3>
+        </div>
+        <div class="process-step">
+            <div class="step-num">02</div>
+            <img src="step2.png" onerror="this.src='https://images.unsplash.com/photo-1614680376593-902f74fa0d41?w=150'">
+            <h3>联系TG客服</h3>
+            <p><a href="https://t.me/bbc1992bbc" target="_blank">(点击直接联系)</a></p>
+        </div>
+        <div class="process-step">
+            <div class="step-num">03</div>
+            <img src="step3.png" onerror="this.src='https://images.unsplash.com/photo-1524311546418-4a0443f350c9?w=150'">
+            <h3>提供地址</h3>
+        </div>
+        <div class="process-step">
+            <div class="step-num">04</div>
+            <img src="step4.png" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=150'">
+            <h3>断层发货</h3>
+        </div>
+        <div class="process-step">
+            <div class="step-num">05</div>
+            <img src="step5.png" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=150'">
+            <h3>货到付款</h3>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-dark">
     <div class="title">
         <h2>为什么选择国翔通讯</h2>
     </div>
@@ -506,6 +277,94 @@ footer{
     </div>
 </section>
 
+<section class="section">
+    <div class="title">
+        <h2>客户真实好评</h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>在国翔拿了一批联通卡做抖音电商项目矩阵，沉淀期确实够长，注册通过率很高，直接注册省去了实名的烦恼，非常稳。</p>
+            <div class="user-info">
+                <span class="user-name">抖音电商 老李</span>
+                <span class="user-name user-tag">复购客户</span>
+            </div>
+        </div>
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>之前在别家买的卡经常用几天就挂失，换了这家卡后，业务跑得很顺。一次实名很彻底，隐私保护这块做得让人放心。</p>
+            <div class="user-info">
+                <span class="user-name">电销策监 张女士</span>
+                <span class="user-name user-tag">大客户</span>
+            </div>
+        </div>
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>做传统社媒最怕封号，一旦封号所有的已发布的内容都没了。这批卡稳定性确实高，注册和养号效率都提升不少。</p>
+            <div class="user-info">
+                <span class="user-name">社媒总监 王总</span>
+                <span class="user-name user-tag">长期合作</span>
+            </div>
+        </div>
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>已经连续用了几个月，从没遇到异常问题。对一些特殊业务来说，稳定比便宜重要得多。也不用每天起床就看被挂失没。</p>
+            <div class="user-info">
+                <span class="user-name">个人用户 刘先生</span>
+                <span class="user-name user-tag">企业客户</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-white" id="faq">
+    <div class="title">
+        <h2>常见问题解答 (FAQ)</h2>
+    </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 国翔通讯能提供哪些服务？</div>
+            <div class="faq-answer"><span>A</span> 国翔通讯旨在为手机卡实际需要者与终端地推之间搭建安全合规渠道，同时也是一家为解决全球通讯，特别是大陆区通讯方案的解决平台。提供优质的解决方案，让您在保障个人隐私的情况下享受快捷的通讯服务。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 如何付款?可以用微信或支付宝吗？</div>
+            <div class="faq-answer"><span>A</span> 受政策风控原因，为最大程度保障用户个人隐私安全，国翔通讯只使用USDT（TRC-20）作为唯一货币，同时只支持客户用去中心化的钱包进行交易，谢谢您的理解与支持。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 你们的实名手机卡来源是正规渠道吗？</div>
+            <div class="faq-answer"><span>A</span> 是的，我们是与部分城市地推团队合作，有厅卡现办和在线激活两种方式。不管哪种方式均沉淀一个月，发货前均检查能正常接打电话，正常上网再进行出售。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 你们是如何进行快递发货的呢？</div>
+            <div class="faq-answer"><span>A</span> 首先您选择好需要的手机卡类型后，将手机卡类型与张数告诉客服，自行扫描快递二维码码，客服会告诉你发件地址，注意查询物流信息即可。如果实在不方便，国翔通讯也可以代扫快递二维码邮寄。发货后会第一时间给你快递单号。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 售后是怎样的呢？我买到后你们能包多久？</div>
+            <div class="faq-answer"><span>A</span> 因为手机卡的特殊性，插卡后能接打电话，正常上网均视为正常。用户因特殊原因（如高频呼叫，手机口等）被有关方面封停，不在售后范围之内。正常使用情况下，如发生实名掉了（因为已沉淀至少一个月，这种情况极少见），在收到卡的一个月内可以凭通话记录截图（自己在手机通过验证码登录相关APP，如中国移动，中国联通，中国电信等，自行对一个月内的通话记录截屏），通过核实后第一时间进行补发。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 我收到货了，是现场把钱给快递员吗？</div>
+            <div class="faq-answer"><span>A</span> 受政策风控影响，2026年1月起停止快递代收款业务。用户收到手机卡后，请在24小时内用USTD方式支付购买手机卡的相关费用。如果超时不支付，也未提交手机卡无法使用的任何证明，国翔通讯有权第一时间通知相关地推团队联系相关人员进行手机卡的挂失或者销号，由此造成的一切损失均由用户自行负责。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 购买多少张卡都支持货到付款吗？</div>
+            <div class="faq-answer"><span>A</span> 货到付款仅限首次交易客户，所交易手机卡也仅限一张。老客户以及一次够多张卡均为款到发货交易模式，请知悉。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 我可以自主选择归属地与手机号段吗？</div>
+            <div class="faq-answer"><span>A</span> 因为行业的政策性，国翔通讯是与部分地区的一手地推进行开卡合作，所以原则上是无法自主选择开卡的归属地与手机号段，有特殊需要者可以与客服直接联系。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 我是个人生活备用使用，比如收发快递方面，会被原机主注销掉吗？</div>
+            <div class="faq-answer"><span>A</span> 市场上没有一家卡商可以保证所售的手机卡可以永久使用，那种所谓的老人卡，闲置收购卡极少会成批量出现。但地推团队与开卡人都有一定的利益与制约关系，所以用户收到卡后只要正常使用，90%以上不会出现短期(1个月内)销号，挂失或封停的行为的，但因违规使用被运营商直接封停除外。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><span>Q</span> 能把开卡人的身份证照片给我吗？</div>
+            <div class="faq-answer"><span>A</span> 因身份证与个人私密高度关联，特别是与手机卡配在一起，以往已发生数次相关情况。为了保障渠道安全，一律不提供开卡人身份证信息。同时一般在正常使用状态下，也不需要开卡人的身份资料。</div>
+        </div>
+    </div>
+</section>
+
 <section class="contact" id="contact">
     <h2>即刻与我们取得联系</h2>
     <p class="contact-info">欢迎通过 Telegram 咨询业务：<strong>@bbc1992bbc</strong></p>
@@ -513,6 +372,13 @@ footer{
         <i class="fa-brands fa-telegram"></i> 立即联系 TG 客服
     </a>
 </section>
+
+<div class="disclaimer-section">
+    <div class="disclaimer-container">
+        <strong>免责声明：</strong>
+        国翔通讯旨在为注重个人隐私，不方便去营业厅的残障人士以及自身名下卡已办满的用户提供便利服务。禁止使用在本站购买的已实名手机卡从事任何违反法律的活动，否则由此产生的任何法律后果将由实际使用人自行负责。
+    </div>
+</div>
 
 <footer>
     &copy; 2026 国翔通讯 GUOXIANG TELECOM. All Rights Reserved.
