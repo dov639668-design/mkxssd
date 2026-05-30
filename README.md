@@ -18,7 +18,7 @@
 
 ## 🛠️ 核心架构与技术栈 (Tech Stack)
 
-本项目采用前沿的流体响应式架构，在保障极致视觉动效的同时，优化了海量地推并发访问下的秒开性能：
+本项目采用前沿的流体响应式架构，在保障极致视觉动效的同时，优化了海量地推并发访问下的秒开性能，特别是针对大陆IP的代码优化，完美契合Cloudflare的CDN加速，让您的网站不管再海外还是国内，都是秒开效果：
 
 <p align="left">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
