@@ -25,10 +25,12 @@
 
 ## 📸 效果演示 (Demo)
 
-> 💡 *部署后，以下区域将完美展示您的网站预览，吸引更多同行为您点赞！*
+> 💡 **像素级大厂官网复刻**：点击下方预览图，即可直达为您一键部署好的 GitHub Pages 官方免费展示主页（支持PC与移动端自适应，尽享极简奢华体验）！
 
 <p align="center">
-  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" width="100%" alt="国翔通讯官方预览">
+  <a href="https://dov639668-design.github.io/mkxssd/" target="_blank" title="点击一键预览国翔通讯官方展示站">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" width="100%" alt="国翔通讯官方Pages主页预览（点击跳转）">
+  </a>
 </p>
 
 ## 🚀 快速部署 (Quick Start)
@@ -75,7 +77,7 @@
 | [Receive SMS Online](https://receivesmsonline.in/) | 印度、欧美地区 | 针对特定海外应用通过率高 ⭐⭐⭐⭐ |
 | [SMS-Online.co](https://sms-online.co/) | 美国、英国、瑞典 | 经典老牌平台，稳定性强 ⭐⭐⭐⭐ |
 | [FreePhoneNum](https://freephonenum.com/) | 美国、加拿大 | 每天更新号码，支持自助刷新 ⭐⭐⭐⭐⭐ |
-| [Receive SMS](https://receivesms.org/) | 英国、德国、欧美 | 专攻欧洲区域短信接收 ⭐⭐⭐⭐ |
+| [Receive SMS](https://receive-sms.org/) | 英国、德国、欧美 | 专攻欧洲区域短信接收 ⭐⭐⭐⭐ |
 | [SMSReceiveFree](https://smsreceivefree.com/) | 北美地区专用 | 完美适配各大海外主流App验证 ⭐⭐⭐⭐⭐ |
 | [Receive-SMS-Now](https://receive-sms-now.com/) | 全球混合号码 | 备用平台，号码池定期更换 ⭐⭐⭐ |
 | [Online-SMS.org](https://online-sms.org/) | 俄罗斯、欧美、亚洲 | 小众国家号码多，有奇效 ⭐⭐⭐⭐ |
