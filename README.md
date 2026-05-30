@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>2026全新升级 · 极简奢华流光架构 · 全终端自适应智能通信服务官方推广站</strong>
+  <strong>2026全新升级 · 极简奢华流光架构 · 全终端自适应智能通信 service 官方推广站</strong>
 </p>
 
 ---
@@ -18,7 +18,7 @@
 
 ## 🛠️ 核心架构与技术栈 (Tech Stack)
 
-本项目采用前沿的流体响应式架构，在保障极致视觉动效的同时，优化了海量地推并发访问下的秒开性能，特别是针对大陆IP的代码优化，完美契合Cloudflare的CDN加速，让您的网站不管再海外还是国内，都是秒开效果：
+本项目采用前沿的流体响应式架构，在保障极致视觉动效的同时，优化了海量地推并发访问下的秒开性能：
 
 <p align="left">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
@@ -45,7 +45,7 @@
 
 <p align="center">
   <a href="https://dov639668-design.github.io/mkxssd/" target="_blank" title="点击一键预览国翔通讯官方展示站">
-    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" width="100%" alt="国翔通讯官方Pages主页预览（点击跳转）">
+    <img src="image.png" width="100%" alt="国翔通讯官方Pages主页预览（点击跳转）">
   </a>
 </p>
 
