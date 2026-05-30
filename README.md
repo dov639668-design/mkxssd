@@ -16,12 +16,28 @@
 
 **国翔通讯** 官方高端静态宣传站，旨在为注重个人隐私的特定用户与终端地推之间搭建安全、合规的桥梁。本项目基于最新前端技术，完美复刻 Apple 与大厂官网的流光交互动效，提供极致的视觉体验与顺畅的客户流转转化逻辑。
 
+## 🛠️ 核心架构与技术栈 (Tech Stack)
+
+本项目采用前沿的流体响应式架构，在保障极致视觉动效的同时，优化了海量地推并发访问下的秒开性能：
+
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JS">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" alt="Tailwind">
+  <img src="https://img.shields.io/badge/GitHub_Pages-181717?style=flat-square&logo=github&logoColor=white" alt="GH-Pages">
+</p>
+
+---
+
 ## ✨ 功能亮点 (Features)
 
 * 💎 **大厂流光动效 (Premium Glow)**：核心卡片引入全动态霓虹流光边框，鼠标悬停即享高级科技质感。
 * 📱 **完美全端自适应 (Responsive Design)**：像素级适配 PC 端、平板、及各类手机屏幕。
 * 🚀 **无缝交互导航 (Anchor Navigation)**：购买流程、FAQ 常见问答一键平滑滚动定位，联系客服无缝新开电报对话。
 * 🎯 **极致 SEO 优化 (SEO Ready)**：全面接入 Open Graph 社交媒体分享标签与 JSON-LD 组织结构化数据。
+
+---
 
 ## 📸 效果演示 (Demo)
 
@@ -33,6 +49,8 @@
   </a>
 </p>
 
+---
+
 ## 🚀 快速部署 (Quick Start)
 
 这是一个纯静态的高级网页项目，支持秒级一键免服务器部署：
@@ -42,6 +60,19 @@
 3. 将 **Build and deployment** 下的 Source 设置为 `Deploy from a branch`。
 4. Branch 选择 `main` 分支（或 `master`），目录选择 `/root`，点击 **Save**。
 5. 刷新页面，即可获得您专属的二级域名官方站点！
+
+---
+
+## ❓ 常见问题答疑 (FAQ)
+
+#### Q1: 你们的卡源和市面上的虚拟号/网络接码有什么区别？
+* **答**：市面上的网络接码多为二次回收的虚拟号，极易触发大厂风控导致直接封号。国翔通讯提供的是正规一手实名手机卡/电话卡，纯净物理卡头，全渠道一手货源，下卡即用，安全稳定不封号。
+
+#### Q2: 支持货到付款吗？运输渠道是什么？
+* **答**：我们全面支持货到付款渠道，让您的采购免去后顾之忧。全顺丰/专业物流安全打包发货，沉淀 1 个月以上的老卡均做二次实名认证，确保到手即发即用。
+
+#### Q3: 适合用来做哪些业务的地推或海外注册？
+* **答**：完美适配全球主流社交软件（Telegram、WhatsApp）、各大电商平台（Amazon、TikTok Shop）以及海外金融工具的实名和接码验证，隐私安全有保障。
 
 ---
 
@@ -61,6 +92,20 @@
 
 如果你觉得这个前端项目或者设计风格对你有帮助，请给一个 **Star ⭐**，这是对开源设计最大的支持与鼓励！
 
+---
+
+## 🛡️ 进阶工具：全套海外账号注册与风控检测工具
+
+> 💡 **防封号与环境检测利器**：在批量业务或养号过程中，除了接码，更重要的是确保执行环境的纯净度。以下为行业常用的免费权威检测站：
+
+| 🌐 平台/工具名称 | 🎯 主要核心用途 | 🔗 快捷访问链接 |
+| :--- | :--- | :--- |
+| **Whoer.net** | 检测 IP 匿名度、DNS 泄露、黑名单状态 | [点击检测 Whoer](https://whoer.net/) |
+| **IPinfo.io** | 深度查询 IP 类型（住宅/机房/原生卡） | [点击查询 IPinfo](https://ipinfo.io/) |
+| **Scamalytics** | 欺诈分数检测（分数越低，越不易被封号） | [点击查欺诈分](https://scamalytics.com/) |
+| **BrowserScan** | 浏览器指纹防关联检测（WebRTC/Canvas） | [点击检测指纹](https://www.browserscan.net/) |
+
+> ⚠️ **风控黄金法则**：优质的一手卡源（如 **国翔通讯**）如果配合高匿名度的纯净住宅网络，注册各类海外金融、社交软件的通过率可提升 90% 以上。
 
 ---
 
@@ -77,7 +122,7 @@
 | [Receive SMS Online](https://receivesmsonline.in/) | 印度、欧美地区 | 针对特定海外应用通过率高 ⭐⭐⭐⭐ |
 | [SMS-Online.co](https://sms-online.co/) | 美国、英国、瑞典 | 经典老牌平台，稳定性强 ⭐⭐⭐⭐ |
 | [FreePhoneNum](https://freephonenum.com/) | 美国、加拿大 | 每天更新号码，支持自助刷新 ⭐⭐⭐⭐⭐ |
-| [Receive SMS](https://receive-sms.org/) | 英国、德国、欧美 | 专攻欧洲区域短信接收 ⭐⭐⭐⭐ |
+| [Receive SMS](https://receivesms.org/) | 英国、德国、欧美 | 专攻欧洲区域短信接收 ⭐⭐⭐⭐ |
 | [SMSReceiveFree](https://smsreceivefree.com/) | 北美地区专用 | 完美适配各大海外主流App验证 ⭐⭐⭐⭐⭐ |
 | [Receive-SMS-Now](https://receive-sms-now.com/) | 全球混合号码 | 备用平台，号码池定期更换 ⭐⭐⭐ |
 | [Online-SMS.org](https://online-sms.org/) | 俄罗斯、欧美、亚洲 | 小众国家号码多，有奇效 ⭐⭐⭐⭐ |
