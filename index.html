@@ -3,331 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>国翔通讯 | 实名手机卡 · 大流量卡 · 隐私通信保护</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
+/* 全局现代感重置 */
+:root {
+    --primary: #2563eb;          /* 科技现代蓝 */
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --accent: #00f2fe;           /* 极光青（点缀色） */
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-bg: #030712;          /* 极其深邃的夜空蓝 */
+    --dark-card: #1f2937;        /* 深色卡片背景 */
+    --light-bg: #f8fafc;         /* 现代浅灰白 */
+    --text-main: #0f172a;        /* 主文字颜色 */
+    --text-muted: #64748b;       /* 次要文字颜色 */
+}
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 丝滑滚动 */
 }
 
 body{
-font-family:"Microsoft YaHei",sans-serif;
-background:#f5f7fa;
-color:#333;
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
+/* 导航栏：加入毛玻璃效果（Glassmorphism） */
 header{
-background:#0a1428;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:999;
+    background: rgba(3, 7, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logo img{
-height:60px;
+    height: 45px;
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5)); /* 标志微光 */
 }
 
 .logo h2{
-color:#fff;
-font-size:28px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 nav a{
-color:#fff;
-text-decoration:none;
-margin-left:25px;
-font-size:16px;
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-nav a:hover{
-color:#d4af37;
+nav a:hover, nav a.active{
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
+/* 巨幕（Banner）：高级暗色滤镜+流光文字 */
 .banner{
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-text-align:center;
-color:#fff;
+    background: 
+        linear-gradient(135deg, rgba(3,7,18,0.9) 0%, rgba(15,23,42,0.8) 100%),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"); /* 换成更有科技感的星空网络图 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 160px 20px;
+    text-align: center;
+    color: #fff;
 }
 
 .banner h1{
-font-size:58px;
-margin-bottom:20px;
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, #fff, #93c5fd, #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .banner p{
-font-size:22px;
-max-width:900px;
-margin:auto;
-line-height:1.8;
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: #94a3b8;
+    font-weight: 300;
 }
 
+/* 按钮：Apple风高质感按钮 */
 .btn{
-display:inline-block;
-margin-top:35px;
-background:#d4af37;
-color:#fff;
-padding:15px 40px;
-border-radius:50px;
-text-decoration:none;
-font-size:18px;
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: #fff;
+    padding: 14px 38px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+/* 通用布局节 */
 .section{
-padding:80px 8%;
+    padding: 100px 8%;
 }
 
 .title{
-text-align:center;
-margin-bottom:50px;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .title h2{
-font-size:40px;
-color:#0a1428;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
 }
 
+/* 标题小横线点缀 */
+.title h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    margin: 12px auto 0 auto;
+}
+
+/* 业务卡片区：引入微立体阴影与发光边框效果 */
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .card{
-background:#fff;
-padding:35px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
+    background: #fff;
+    padding: 40px 35px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* 卡片内部图标 */
+.card-icon {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 20px;
 }
 
 .card h3{
-font-size:28px;
-margin-bottom:20px;
-color:#0a1428;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    font-weight: 600;
 }
 
 .card p{
-line-height:1.9;
-font-size:16px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
 }
 
-.highlight{
-color:#d4af37;
-font-weight:bold;
-}
-
+/* 特性区：采用极客深黑色调 */
 .feature{
-background:#0a1428;
-color:#fff;
+    background: var(--dark-bg);
+    color: #fff;
+    position: relative;
+}
+
+.feature .title h2 {
+    color: #fff;
 }
 
 .feature-box{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
 
 .feature-item{
-background:#152443;
-padding:30px;
-border-radius:15px;
-text-align:center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary);
+    transform: scale(1.03);
+}
+
+.feature-item i {
+    font-size: 28px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
 }
 
 .feature-item h3{
-margin-bottom:15px;
-color:#d4af37;
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 600;
 }
 
+.feature-item p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* 联系区域：简洁现代化 */
 .contact{
-text-align:center;
-padding:80px 20px;
-background:#fff;
+    text-align: center;
+    padding: 100px 20px;
+    background: #fff;
 }
 
 .contact h2{
-font-size:40px;
-margin-bottom:20px;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+.contact-info strong {
+    color: var(--primary);
 }
 
 .telegram{
-background:#0088cc;
-color:#fff;
-padding:18px 45px;
-border-radius:50px;
-display:inline-block;
-text-decoration:none;
-font-size:20px;
+    background: #0088cc;
+    color: #fff;
+    padding: 15px 45px;
+    border-radius: 50px;
+    display: inline-gradient;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3);
+    transition: all 0.3s;
 }
 
+.telegram:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+    background: #0099e6;
+}
+
+/* 页脚 */
 footer{
-background:#0a1428;
-color:#fff;
-text-align:center;
-padding:25px;
+    background: var(--dark-bg);
+    color: #475569;
+    text-align: center;
+    padding: 35px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    letter-spacing: 0.5px;
+}
+
+/* 响应式媒体查询优化 */
+@media(max-width:992px){
+    .section { padding: 70px 5%; }
+    header { padding: 15px 5%; }
 }
 
 @media(max-width:768px){
-
-.banner h1{
-font-size:38px;
+    .banner h1{ font-size: 36px; }
+    .banner p{ font-size: 16px; }
+    .logo h2{ font-size: 20px; }
+    nav { display: none; } /* 移动端建议后续做汉堡菜单，此处先隐藏多余元素防止错位 */
+    .cards, .feature-box { grid-template-columns: 1fr; }
 }
-
-.banner p{
-font-size:18px;
-}
-
-.logo h2{
-font-size:22px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-<img src="logo.png">
-<h2>国翔通讯</h2>
-</div>
-
-<nav>
-<a href="#">首页</a>
-<a href="#">实名手机卡</a>
-<a href="#">大流量卡</a>
-<a href="#">隐私保护</a>
-<a href="#">联系客服</a>
-</nav>
-
+    <div class="logo">
+        <img src="logo.png" onerror="this.style.display='none'">
+        <h2>国翔通讯</h2>
+    </div>
+    <nav>
+        <a href="#" class="active">首页</a>
+        <a href="#">实名手机卡</a>
+        <a href="#">大流量卡</a>
+        <a href="#">隐私保护</a>
+        <a href="#contact">联系客服</a>
+    </nav>
 </header>
 
 <section class="banner">
-
-<h1>全球通信解决方案平台</h1>
-
-<p>
-专注实名手机卡、大流量卡及通信服务，
-为用户提供稳定、安全、便捷的通信体验。
-</p>
-
-<a href="#contact" class="btn">立即咨询</a>
-
+    <h1>全球智能通信解决方案平台</h1>
+    <p>专注正规实名手机卡、全网大流量卡及全方位通信服务。以技术筑底，为您提供稳定、安全、合规的高性能网络连接体验。</p>
+    <a href="#contact" class="btn">立即开启咨询</a>
 </section>
 
 <section class="section">
-
-<div class="title">
-<h2>核心业务</h2>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>实名手机卡</h3>
-<p>
-正规实名登记，稳定使用，
-支持长期持有与日常通信需求。
-</p>
-</div>
-
-<div class="card">
-<h3>大流量卡</h3>
-<p>
-提供高流量套餐方案，
-满足视频、直播、跨境办公等需求。
-</p>
-</div>
-
-<div class="card">
-<h3>通信服务</h3>
-<p>
-覆盖多种通信场景，
-支持灵活配置与长期稳定使用。
-</p>
-</div>
-
-</div>
-
+    <div class="title">
+        <h2>核心业务生态</h2>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-address-card"></i></div>
+            <h3>实名手机卡</h3>
+            <p>全渠道正规实名登记认证，信号稳定无忧。支持长期持有，完美适配高频日常通信与商务办公场景。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>专属大流量卡</h3>
+            <p>精选全网高性价比大流量套餐，告别限速焦虑。轻松满足4K视频、高清直播以及跨境移动办公等极限流速需求。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>多场景通信服务</h3>
+            <p>业务深度覆盖多元化通信场景。支持企业与个人客户的个性化灵活配置，保障底层核心数据的长期与稳定。</p>
+        </div>
+    </div>
 </section>
 
 <section class="section feature">
-
-<div class="title">
-<h2 style="color:white;">为什么选择国翔通讯</h2>
-</div>
-
-<div class="feature-box">
-
-<div class="feature-item">
-<h3>正规渠道</h3>
-<p>正规办理流程，稳定可靠。</p>
-</div>
-
-<div class="feature-item">
-<h3>长期稳定</h3>
-<p>专注通信服务，持续运营。</p>
-</div>
-
-<div class="feature-item">
-<h3>售后支持</h3>
-<p>专业客服在线解答问题。</p>
-</div>
-
-<div class="feature-item">
-<h3>安全保障</h3>
-<p>重视用户隐私与信息安全。</p>
-</div>
-
-</div>
-
+    <div class="title">
+        <h2>为什么选择国翔通讯</h2>
+    </div>
+    <div class="feature-box">
+        <div class="feature-item">
+            <i class="fa-solid fa-building-shield"></i>
+            <h3>官方正规渠道</h3>
+            <p>100%正规办卡流程，拒绝虚假，合规稳定有保障。</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>服务长期稳定</h3>
+            <p>深耕通信行业多年，技术与运营持续在线，不失联。</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-headset"></i>
+            <h3>专属售后支持</h3>
+            <p>专业客服团队全天候快速响应，一对一解决使用难题。</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-lock"></i>
+            <h3>隐私安全隔离</h3>
+            <p>严格执行用户信息保护机制，让您的每一次通信都安全放心。</p>
+        </div>
+    </div>
 </section>
 
 <section class="contact" id="contact">
-
-<h2>联系客服</h2>
-
-<p style="margin-bottom:30px;font-size:20px;">
-Telegram：@bbc1992bbc
-</p>
-
-<a class="telegram" href="#">
-立即联系TG客服
-</a>
-
+    <h2>即刻与我们取得联系</h2>
+    <p class="contact-info">欢迎通过 Telegram 咨询业务：<strong>@bbc1992bbc</strong></p>
+    <a class="telegram" href="https://t.me/bbc1992bbc" target="_blank">
+        <i class="fa-brands fa-telegram"></i> 立即联系 TG 客服
+    </a>
 </section>
 
 <footer>
-
-© 2026 国翔通讯 GUOXIANG TELECOM
-
+    &copy; 2026 国翔通讯 GUOXIANG TELECOM. All Rights Reserved.
 </footer>
 
 </body>
