@@ -53,13 +53,31 @@ html { scroll-behavior: smooth; }
 body{
     font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
     background: var(--light-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden;
+    position: relative;
+}
+
+/* 🔒 宣传手法二：独家防伪动态数字水印样式 */
+.watermark-layer {
+    position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025; /* 极低透明度，尊贵隐蔽 */
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(180px, 1fr)); gap: 30px;
+    transform: rotate(-15px) scale(1.1); animation: watermarkFloat 20s linear infinite;
+}
+.watermark-item {
+    font-size: 13px; color: #000; font-weight: 600; white-space: nowrap;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+@keyframes watermarkFloat {
+    0% { transform: rotate(-15deg) translate(0, 0); }
+    50% { transform: rotate(-15deg) translate(10px, 10px); }
+    100% { transform: rotate(-15deg) translate(0, 0); }
 }
 
 /* 导航栏：Apple 级别超清毛玻璃 */
 header{
     background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
-    position: sticky; top: 0; z-index: 999; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: sticky; top: 0; z-index: 998; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .logo{ display: flex; align-items: center; gap: 14px; cursor: pointer; }
 .logo img{ height: 48px; filter: drop-shadow(0 0 12px var(--primary)); }
@@ -91,7 +109,7 @@ nav a:hover::after, nav a.active::after{ width: 100%; }
 .btn.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); }
 
 /* 通用布局 */
-.section{ padding: 120px 8%; scroll-margin-top: 80px; } /* 增加 scroll-margin-top 避免被吸顶导航栏挡住标题 */
+.section{ padding: 120px 8%; scroll-margin-top: 80px; }
 .bg-white { background: #fff; }
 .bg-dark { background: var(--dark-bg); color: #fff; }
 .title{ text-align: center; margin-bottom: 70px; }
@@ -128,13 +146,23 @@ nav a:hover::after, nav a.active::after{ width: 100%; }
 .feature-item p { color: #94a3b8; font-size: 14px; line-height: 1.6; }
 
 /* 精选好评墙卡片样式 */
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
 .testi-card { background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(15,23,42,0.02); border: 1px solid rgba(15,23,42,0.04); position: relative; }
 .stars { color: var(--gold); font-size: 14px; margin-bottom: 15px; letter-spacing: 2px; }
 .testi-card p { color: #334155; font-size: 15px; line-height: 1.8; font-style: italic; margin-bottom: 25px; }
 .user-info { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 15px; }
 .user-name { font-weight: 600; color: var(--text-main); font-size: 15px; }
 .user-tag { background: rgba(59, 130, 246, 0.08); color: var(--primary); font-size: 12px; padding: 4px 12px; border-radius: 50px; font-weight: 500; }
+
+/* 🔗 宣传手法四：一键裂变分享按钮设计 */
+.share-action-container { text-align: center; margin-top: 20px; }
+.btn-share {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff; border: none;
+    padding: 14px 35px; border-radius: 50px; font-size: 15px; font-weight: 600; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
+    transition: all 0.3s ease;
+}
+.btn-share:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45); }
 
 /* 风琴式高级 Q&A 问答区 */
 .faq-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
@@ -161,13 +189,80 @@ nav a:hover::after, nav a.active::after{ width: 100%; }
 /* 页脚 */
 footer{ background: var(--dark-bg); color: #334155; text-align: center; padding: 40px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); letter-spacing: 1px; }
 
+/* 💎 宣传手法一：全屏霓虹流光通告弹窗 */
+.promo-modal-overlay {
+    position: fixed; inset: 0; background: rgba(3, 7, 18, 0.6); backdrop-filter: blur(12px);
+    z-index: 10000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.promo-modal-overlay.active { opacity: 1; pointer-events: auto; }
+.promo-modal {
+    background: linear-gradient(135deg, #0f172a 0%, #030712 100%); border-radius: 30px;
+    padding: 45px 40px; max-width: 500px; width: 90%; text-align: center; color: #fff;
+    position: relative; box-shadow: 0 0 50px rgba(59, 130, 246, 0.2);
+    transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.promo-modal-overlay.active .promo-modal { transform: scale(1); }
+/* 弹窗霓虹边框流动特效 */
+.promo-modal::before {
+    content: ''; position: absolute; inset: -2px; border-radius: 32px;
+    background: linear-gradient(90deg, #3b82f6, #00f2fe, #f59e0b, #3b82f6); background-size: 400%;
+    z-index: -1; animation: modalGlow 8s linear infinite;
+}
+@keyframes modalGlow { 0% { background-position: 0% 50%; } 100% { background-position: 400% 50%; } }
+.promo-badge { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 50px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px; }
+.promo-modal h3 { font-size: 26px; font-weight: 700; margin-bottom: 15px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.promo-modal p { color: #94a3b8; font-size: 15px; line-height: 1.7; margin-bottom: 30px; }
+.promo-btn-group { display: flex; flex-direction: column; gap: 12px; }
+.modal-btn-primary { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: #fff; padding: 14px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; display: block; box-shadow: 0 4px 15px rgba(59,130,246,0.3); transition: all 0.3s; }
+.modal-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59,130,246,0.5); }
+.modal-btn-close { color: #64748b; background: transparent; border: none; cursor: pointer; font-size: 14px; padding: 5px; transition: color 0.3s; }
+.modal-btn-close:hover { color: #94a3b8; }
+
+/* 📊 宣传手法三：智能订单交易轮播胶囊舱 */
+.live-order-capsule {
+    position: fixed; bottom: 30px; left: 30px; z-index: 999;
+    background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 24px; border-radius: 50px;
+    display: flex; align-items: center; gap: 12px; color: #fff; font-size: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(150px); opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+}
+.live-order-capsule.visible { transform: translateY(0); opacity: 1; }
+.order-icon-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50px; box-shadow: 0 0 10px #10b981; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+.order-text { font-weight: 400; color: #cbd5e1; }
+.order-text strong { color: #3b82f6; font-weight: 600; }
+
 /* 全终端响应式优化 */
 @media(max-width:992px){ .section { padding: 80px 5%; } header { padding: 15px 5%; } .banner h1 { font-size: 46px; } }
-@media(max-width:768px){ .banner h1{ font-size: 38px; } .banner p{ font-size: 18px; } .logo h2{ font-size: 22px; } nav { display: none; } .cards, .feature-box, .process-box, .testimonials-grid { grid-template-columns: 1fr; } }
+@media(max-width:768px){ .banner h1{ font-size: 38px; } .banner p{ font-size: 18px; } .logo h2{ font-size: 22px; } nav { display: none; } .cards, .feature-box, .process-box, .testimonials-grid { grid-template-columns: 1fr; } .live-order-capsule { left: 15px; bottom: 15px; right: 15px; font-size: 13px; } }
 </style>
 </head>
 
-<body id="top"> <header>
+<body id="top">
+
+<div class="watermark-layer" id="watermarkLayer"></div>
+
+<div class="promo-modal-overlay" id="promoModal">
+    <div class="promo-modal">
+        <span class="promo-badge"><i class="fa-solid fa-bell"></i> 2026 迎新特别通告</span>
+        <h3>国翔通讯 · 唯一服务公告</h3>
+        <p>近日市场出现假冒我司的低劣话卡渠道。请认准官方认证书：国翔通讯全渠道手机卡<b>均已在厅沉淀1个月以上</b>，发出前100%通过双向测通，杜绝秒封！首单独家特批货到付款。</p>
+        <div class="promo-btn-group">
+            <a href="https://t.me/bbc1992bbc" target="_blank" class="modal-btn-primary" onclick="closePromoModal();"><i class="fa-brands fa-telegram"></i> 领配额 · 立即对接官方客服</a>
+            <button class="modal-btn-close" onclick="closePromoModal();">暂不需要，先看看网站</button>
+        </div>
+    </div>
+</div>
+
+<div class="live-order-capsule" id="orderCapsule">
+    <div class="order-icon-dot"></div>
+    <div class="order-text" id="orderText">正在获取实时交易数据...</div>
+</div>
+
+
+<header>
     <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
         <img src="logo.png" onerror="this.style.display='none'">
         <h2>国翔通讯</h2>
@@ -185,7 +280,7 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
     <p>专注正规实名手机卡、全网大流量卡及全方位通信服务。以技术筑底，为您提供稳定、安全、合规的高性能网络连接体验。</p>
     <div class="btn-container">
         <a href="https://t.me/bbc1992bbc" target="_blank" class="btn"><i class="fa-solid fa-comments"></i> 立即咨询客服</a>
-        <a href="https://mkxssd.com" class="btn btn-secondary" target="_blank" rel="noopener">访问主官方网站 →</a>
+        <a href="https://dov639668-design.github.io/mkxssd/" class="btn btn-secondary" target="_blank" rel="noopener">访问主官方网站 →</a>
     </div>
 </section>
 
@@ -312,6 +407,12 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
             </div>
         </div>
     </div>
+    
+    <div class="share-action-container">
+        <button class="btn-share" onclick="copyShareText();">
+            <i class="fa-solid fa-share-nodes"></i> 一键分享高留存卡源给同行（拿卡享折上折）
+        </button>
+    </div>
 </section>
 
 <section class="section bg-white" id="faq">
@@ -321,7 +422,7 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
     <div class="faq-container">
         <div class="faq-item">
             <div class="faq-question"><span>Q</span> 国翔通讯能提供哪些服务？</div>
-            <div class="faq-answer"><span>A</span> 国翔通讯旨在为手机卡实际需要者与终端地推之间搭建安全合规渠道，同时也是一家为解决全球通讯，特别是大陆区通讯方案的解决平台。提供优质的解决方案，让您在保障个人隐私的情况下享受快捷的通讯服务。</div>
+            <div class="faq-answer"><span>A</span> 国翔通讯旨在为手机卡实际需要者与终端地推之间搭建安全合规渠道，同时也是一家为解决全球通讯，特别是大陆区通讯方案的解决平台。提供优质的解决方案，让您在保障个人隐私的情况下享受快捷的通信服务。</div>
         </div>
         <div class="faq-item">
             <div class="faq-question"><span>Q</span> 如何付款?可以用微信或支付宝吗？</div>
@@ -380,6 +481,84 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
 <footer>
     &copy; 2026 国翔通讯 GUOXIANG TELECOM. All Rights Reserved.
 </footer>
+
+
+<script>
+// 【功能一：全屏霓虹弹窗延迟 1.5 秒优雅弹出控制】
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.getElementById('promoModal').classList.add('active');
+    }, 1500); // 1500毫秒 = 1.5秒
+});
+
+function closePromoModal() {
+    document.getElementById('promoModal').classList.remove('active');
+}
+
+// 【功能二：全自动无感生成 30 个防伪数字背景水印】
+const watermarkLayer = document.getElementById('watermarkLayer');
+for (let i = 0; i < 30; i++) {
+    const item = document.createElement('div');
+    item.className = 'watermark-item';
+    item.innerHTML = '<span>国翔通讯 唯一正品验证</span><span style="font-size:10px; opacity:0.7;">@bbc1992bbc</span>';
+    watermarkLayer.appendChild(item);
+}
+
+// 【功能三：智能动态订单交易轮播胶囊舱算法】
+const orderData = [
+    { name: "老李 (抖音电商)", action: "成功使用 USDT 续订", detail: "10张 联通高稳沉淀卡" },
+    { name: "张女士 (电销团队)", action: "已由城市地推扫描发货", detail: "单号 SF165******" },
+    { name: "王总 (跨境社媒)", action: "成功批量采购", detail: "5张 移动纯流量注册卡" },
+    { name: "暗夜 (个人工作室)", action: "首次交易货到付款", detail: "100张 规格单卡已封装" },
+    { name: "海外分流工作室", action: "成功回款结账", detail: "通过钱包结算 480 USDT" }
+];
+
+const capsule = document.getElementById('orderCapsule');
+const orderText = document.getElementById('orderText');
+let orderIndex = 0;
+
+function rotateOrders() {
+    // 隐藏胶囊
+    capsule.classList.remove('visible');
+    
+    setTimeout(() => {
+        // 更换文本数据
+        const data = orderData[orderIndex];
+        orderText.innerHTML = `🔔 <strong>最新动态：</strong>老客户 ${data.name} ${data.action} ${data.detail}`;
+        
+        // 显示胶囊
+        capsule.classList.add('visible');
+        
+        // 索引递增循环
+        orderIndex = (orderIndex + 1) % orderData.length;
+    }, 500); // 等待隐藏过渡动画完毕
+}
+
+// 首次触发并开启每 7 秒循环轮播
+setTimeout(rotateOrders, 3000); // 进站 3 秒后首次亮起
+setInterval(rotateOrders, 7000); // 每 7 秒自动无缝切下一条
+
+// 【功能四：一键裂变自适应剪切板高速复制逻辑】
+function copyShareText() {
+    const shareText = "实名手机卡、稳定注册卡找国翔通讯！全渠道一手开卡，在厅沉淀1个月以上，安全抗封。官方唯一电报客服频道：@bbc1992bbc ；官网预览：https://dov639668-design.github.io/mkxssd/";
+    
+    navigator.clipboard.writeText(shareText).then(() => {
+        alert("🎉 复制成功！分享文案已保存在您的剪贴板。\n\n赶快转发给您的同行或社群吧！老客户凭截图对接客服，下次拿卡直接为您申请专属VIP折扣！");
+        // 自动帮他新开标签页唤醒 Telegram 
+        window.open('https://t.me/bbc1992bbc', '_blank');
+    }).catch(err => {
+        // 兼容老旧设备风控
+        const textArea = document.createElement("textarea");
+        textArea.value = shareText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert("🎉 复制成功！分享文案已保存，快去发给同行吧！");
+        window.open('https://t.me/bbc1992bbc', '_blank');
+    });
+}
+</script>
 
 </body>
 </html>
