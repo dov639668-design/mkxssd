@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script type="application/ld+json">
@@ -36,99 +36,397 @@
 </script>
 
 <style>
-/* 全局现代感重置 */
+/* 顶流设计标准：现代色彩资产 */
 :root {
-    --primary: #2563eb;          /* 科技现代蓝 */
-    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-    --accent: #00f2fe;           /* 极光青（点缀色） */
-    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --dark-bg: #030712;          /* 极其深邃的夜空蓝 */
-    --dark-card: #1f2937;        /* 深色卡片背景 */
-    --light-bg: #f8fafc;         /* 现代浅灰白 */
-    --text-main: #0f172a;        /* 主文字颜色 */
-    --text-muted: #64748b;       /* 次要文字颜色 */
+    --primary: #3b82f6;          /* 极客蓝 */
+    --primary-glow: rgba(59, 130, 246, 0.3);
+    --accent: #00f2fe;           /* 激光青 */
+    --dark-bg: #030712;          /* 宇宙深黑 */
+    --light-bg: #f8fafc;         /* 极简珍珠白 */
+    --text-main: #0f172a;        /* 晶石黑 */
+    --text-muted: #64748b;       /* 烟雨灰 */
 }
 
-*{ margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
-    background: var(--light-bg); color: var(--text-main); line-height: 1.6;
+    background: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* 导航栏：Apple 级别超清毛玻璃 */
 header{
-    background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    padding: 18px 8%; display: flex; justify-content: space-between; align-items: center;
-    position: sticky; top: 0; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(3, 7, 18, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.logo{ display: flex; align-items: center; gap: 12px; }
-.logo img{ height: 45px; filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5)); }
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo img{
+    height: 48px;
+    filter: drop-shadow(0 0 12px var(--primary)); /* 头像/Logo微光效果 */
+}
+
 .logo h2{
-    color: #fff; font-size: 24px; font-weight: 700; letter-spacing: 1px;
-    background: linear-gradient(to right, #ffffff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-nav a{ color: #94a3b8; text-decoration: none; margin-left: 30px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; }
-nav a:hover, nav a.active{ color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
+nav a{
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 35px;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+nav a:hover{
+    color: #fff;
+}
+
+nav a:hover::after, nav a.active::after{
+    width: 100%;
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* 巨幕（Banner）：未来主义赛博质感图 */
 .banner{
-    background: linear-gradient(135deg, rgba(3,7,18,0.9) 0%, rgba(15,23,42,0.8) 100%), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
-    background-size: cover; background-position: center; background-attachment: fixed; padding: 160px 20px; text-align: center; color: #fff;
+    background: 
+        linear-gradient(180deg, rgba(3,7,18,0.7) 0%, rgba(3,7,18,0.9) 100%),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 180px 20px 160px 20px;
+    text-align: center;
+    color: #fff;
 }
+
 .banner h1{
-    font-size: 52px; font-weight: 700; margin-bottom: 25px; letter-spacing: -1px;
-    background: linear-gradient(to right, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-size: 58px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #a5f3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.banner p{ font-size: 20px; max-width: 700px; margin: 0 auto 40px auto; color: #94a3b8; font-weight: 300; }
 
-.btn-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.banner p{
+    font-size: 22px;
+    max-width: 800px;
+    margin: 0 auto 45px auto;
+    color: #94a3b8;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* 超高端流光按钮 */
 .btn{
-    display: inline-block; background: var(--primary-gradient); color: #fff; padding: 14px 38px; border-radius: 50px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #3b82f6 100%);
+    background-size: 200% auto;
+    color: #fff;
+    padding: 16px 42px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 25px var(--primary-glow);
+    transition: transform 0.3s, box-shadow 0.3s, background-position 0.5s;
 }
-.btn:hover{ transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5); }
+
+.btn:hover{
+    transform: translateY(-3px);
+    background-position: right center;
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+}
+
 .btn.btn-secondary {
-    background: transparent; border: 2px solid rgba(255,255,255,0.2); box-shadow: none; color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    box-shadow: none;
+    color: #fff;
 }
-.btn.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-.section{ padding: 100px 8%; }
-.title{ text-align: center; margin-bottom: 60px; }
-.title h2{ font-size: 36px; font-weight: 700; color: var(--text-main); position: relative; display: inline-block; }
-.title h2::after { content: ''; display: block; width: 40px; height: 4px; background: var(--primary); border-radius: 2px; margin: 12px auto 0 auto; }
+.btn.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.05);
+}
 
-.cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+/* 通用排版架构 */
+.section{
+    padding: 120px 8%;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.title h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+.title h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 10px;
+    margin: 15px auto 0 auto;
+}
+
+/* 核心生态卡片区：引入超高端悬浮霓虹发光 */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
 .card{
-    background: #fff; padding: 40px 35px; border-radius: 24px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04); border: 1px solid rgba(15, 23, 42, 0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 28px;
+    box-shadow: 0 10px 50px rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
 }
-.card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary-gradient); opacity: 0; transition: opacity 0.3s; }
-.card:hover{ transform: translateY(-8px); box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); border-color: rgba(37, 99, 235, 0.2); }
-.card:hover::before { opacity: 1; }
-.card-icon { font-size: 32px; color: var(--primary); margin-bottom: 20px; }
-.card h3{ font-size: 22px; margin-bottom: 15px; color: var(--text-main); font-weight: 600; }
-.card p{ color: var(--text-muted); font-size: 15px; line-height: 1.7; }
 
-.feature{ background: var(--dark-bg); color: #fff; position: relative; }
-.feature .title h2 { color: #fff; }
-.feature-box{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
-.feature-item{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.3s ease; }
-.feature-item:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--primary); transform: scale(1.03); }
-.feature-item i { font-size: 28px; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-.feature-item h3{ font-size: 18px; margin-bottom: 12px; color: #fff; font-weight: 600; }
-.feature-item p { color: #94a3b8; font-size: 14px; }
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
 
-.contact{ text-align: center; padding: 100px 20px; background: #fff; }
-.contact h2{ font-size: 36px; font-weight: 700; margin-bottom: 15px; }
-.contact-info { font-size: 18px; color: var(--text-muted); margin-bottom: 35px; }
-.contact-info strong { color: var(--primary); }
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.12);
+}
 
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 38px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+.card h3{
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.card p{
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* 尊贵深黑特性区（极客范） */
+.feature{
+    background: var(--dark-bg);
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.feature .title h2 {
+    color: #fff;
+}
+
+.feature-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.feature-item{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 45px 30px;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.feature-item i {
+    font-size: 32px;
+    background: linear-gradient(135deg, #60a5fa 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 22px;
+    display: block;
+}
+
+.feature-item h3{
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.feature-item p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 联系转化区域：高端转化留白 */
+.contact{
+    text-align: center;
+    padding: 130px 20px;
+    background: #fff;
+}
+
+.contact h2{
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 45px;
+    font-weight: 300;
+}
+
+.contact-info strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* 尊贵电报流光按钮 */
 .telegram{
-    background: #0088cc; color: #fff; padding: 15px 45px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3); transition: all 0.3s;
+    background: linear-gradient(135deg, #0088cc 0%, #00a2ed 100%);
+    color: #fff;
+    padding: 18px 55px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    box-shadow: 0 6px 30px rgba(0, 136, 204, 0.3);
+    transition: all 0.3s;
 }
-.telegram:hover{ transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5); background: #0099e6; }
 
-footer{ background: var(--dark-bg); color: #475569; text-align: center; padding: 35px; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); letter-spacing: 0.5px; }
+.telegram:hover{
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 136, 204, 0.5);
+}
 
-@media(max-width:992px){ .section { padding: 70px 5%; } header { padding: 15px 5%; } }
-@media(max-width:768px){ .banner h1{ font-size: 36px; } .banner p{ font-size: 16px; } .logo h2{ font-size: 20px; } nav { display: none; } .cards, .feature-box { grid-template-columns: 1fr; } }
+/* 极简高级页脚 */
+footer{
+    background: var(--dark-bg);
+    color: #475569;
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    letter-spacing: 1px;
+}
+
+/* 全终端响应式顶格优化 */
+@media(max-width:992px){
+    .section { padding: 80px 5%; }
+    header { padding: 15px 5%; }
+    .banner h1 { font-size: 46px; }
+}
+
+@media(max-width:768px){
+    .banner h1{ font-size: 38px; }
+    .banner p{ font-size: 18px; }
+    .logo h2{ font-size: 22px; }
+    nav { display: none; } /* 移动端精简逻辑 */
+    .cards, .feature-box { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 
@@ -152,8 +450,8 @@ footer{ background: var(--dark-bg); color: #475569; text-align: center; padding:
     <h1>全球智能通信解决方案平台</h1>
     <p>专注正规实名手机卡、全网大流量卡及全方位通信服务。以技术筑底，为您提供稳定、安全、合规的高性能网络连接体验。</p>
     <div class="btn-container">
-        <a href="#contact" class="btn">立即咨询客服</a>
-        <a href="https://mkxssd.com" class="btn btn-secondary" target="_blank" rel="noopener">访问国翔通讯官方网站 →</a>
+        <a href="#contact" class="btn"><i class="fa-solid fa-comments"></i> 立即咨询客服</a>
+        <a href="https://你的真实官网网址.com" class="btn btn-secondary" target="_blank" rel="noopener">访问主官方网站 →</a>
     </div>
 </section>
 
