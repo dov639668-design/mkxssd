@@ -1,4 +1,4 @@
-# 🌐 国翔通讯 (Guoxiang Telecom)
+# <img src="logo.png" width="40" height="40" align="left" style="margin-right: 15px;"> 国翔通讯 (Guoxiang Telecom)
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/dov639668-design/mkxssd?style=for-the-badge&color=3b82f6" alt="Stars">
@@ -36,8 +36,6 @@
 * 📱 **完美全端自适应 (Responsive Design)**：像素级适配 PC 端、平板、及各类手机屏幕。
 * 🚀 **无缝交互导航 (Anchor Navigation)**：购买流程、FAQ 常见问答一键平滑滚动定位，联系客服无缝新开电报对话。
 * 🎯 **极致 SEO 优化 (SEO Ready)**：全面接入 Open Graph 社交媒体分享标签与 JSON-LD 组织结构化数据。
-
----
 
 ## 📸 效果演示 (Demo)
 
