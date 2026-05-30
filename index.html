@@ -61,7 +61,7 @@ header{
     padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 999; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.logo{ display: flex; align-items: center; gap: 14px; }
+.logo{ display: flex; align-items: center; gap: 14px; cursor: pointer; }
 .logo img{ height: 48px; filter: drop-shadow(0 0 12px var(--primary)); }
 .logo h2{
     color: #fff; font-size: 26px; font-weight: 700; letter-spacing: 1.5px;
@@ -71,7 +71,6 @@ nav a{ color: #94a3b8; text-decoration: none; margin-left: 35px; font-size: 15px
 nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease; }
 nav a:hover{ color: #fff; }
 nav a:hover::after, nav a.active::after{ width: 100%; }
-nav a.active { color: #fff; }
 
 /* 巨幕（Banner） */
 .banner{
@@ -92,7 +91,7 @@ nav a.active { color: #fff; }
 .btn.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); }
 
 /* 通用布局 */
-.section{ padding: 120px 8%; }
+.section{ padding: 120px 8%; scroll-margin-top: 80px; } /* 增加 scroll-margin-top 避免被吸顶导航栏挡住标题 */
 .bg-white { background: #fff; }
 .bg-dark { background: var(--dark-bg); color: #fff; }
 .title{ text-align: center; margin-bottom: 70px; }
@@ -110,7 +109,7 @@ nav a.active { color: #fff; }
 .card h3{ font-size: 24px; margin-bottom: 18px; color: var(--text-main); font-weight: 600; }
 .card p{ color: var(--text-muted); font-size: 15px; line-height: 1.8; }
 
-/* ⚡ 新增：手机卡购买流程样式 */
+/* 手机卡购买流程样式 */
 .process-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
 .process-step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 30px 20px; text-align: center; position: relative; transition: all 0.3s; }
 .process-step:hover { background: rgba(255,255,255,0.06); border-color: var(--primary); transform: translateY(-5px); }
@@ -128,7 +127,7 @@ nav a.active { color: #fff; }
 .feature-item h3{ font-size: 20px; margin-bottom: 14px; color: #fff; font-weight: 600; }
 .feature-item p { color: #94a3b8; font-size: 14px; line-height: 1.6; }
 
-/* ⚡ 新增：高级好评墙卡片样式 */
+/* 精选好评墙卡片样式 */
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .testi-card { background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(15,23,42,0.02); border: 1px solid rgba(15,23,42,0.04); position: relative; }
 .stars { color: var(--gold); font-size: 14px; margin-bottom: 15px; letter-spacing: 2px; }
@@ -137,7 +136,7 @@ nav a.active { color: #fff; }
 .user-name { font-weight: 600; color: var(--text-main); font-size: 15px; }
 .user-tag { background: rgba(59, 130, 246, 0.08); color: var(--primary); font-size: 12px; padding: 4px 12px; border-radius: 50px; font-weight: 500; }
 
-/* ⚡ 新增：风琴式高级 Q&A 问答区 */
+/* 风琴式高级 Q&A 问答区 */
 .faq-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
 .faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 25px 30px; transition: all 0.3s; }
 .faq-item:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(37,99,235,0.04); }
@@ -147,14 +146,14 @@ nav a.active { color: #fff; }
 .faq-answer span { background: #e2e8f0; color: #475569; font-size: 13px; padding: 2px 8px; border-radius: 6px; font-family: 'Inter', sans-serif; }
 
 /* 联系转化区域 */
-.contact{ text-align: center; padding: 130px 20px; background: #fff; }
+.contact{ text-align: center; padding: 130px 20px; background: #fff; scroll-margin-top: 80px; }
 .contact h2{ font-size: 42px; font-weight: 700; margin-bottom: 20px; }
 .contact-info { font-size: 20px; color: var(--text-muted); margin-bottom: 45px; font-weight: 300; }
 .contact-info strong { color: var(--primary); font-weight: 600; }
 .telegram{ background: linear-gradient(135deg, #0088cc 0%, #00a2ed 100%); color: #fff; padding: 18px 55px; border-radius: 50px; display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-size: 17px; font-weight: 600; box-shadow: 0 6px 30px rgba(0, 136, 204, 0.3); transition: all 0.3s; }
 .telegram:hover{ transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 40px rgba(0, 136, 204, 0.5); }
 
-/* ⚡ 新增：独立合规免责声明区块 */
+/* 独立合规免责声明区块 */
 .disclaimer-section { background: #0b0f19; color: #475569; padding: 60px 8%; font-size: 13px; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.03); }
 .disclaimer-container { max-width: 1000px; margin: 0 auto; text-align: justify; }
 .disclaimer-container strong { color: #94a3b8; display: block; margin-bottom: 8px; font-size: 14px; }
@@ -168,18 +167,16 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
 </style>
 </head>
 
-<body>
-
-<header>
-    <div class="logo">
+<body id="top"> <header>
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
         <img src="logo.png" onerror="this.style.display='none'">
         <h2>国翔通讯</h2>
     </div>
     <nav>
-        <a href="#" class="active">首页</a>
+        <a href="#top" onclick="event.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'});">首页</a>
         <a href="#process">购买流程</a>
         <a href="#faq">常见问答</a>
-        <a href="#contact">联系客服</a>
+        <a href="https://t.me/bbc1992bbc" target="_blank">联系客服</a>
     </nav>
 </header>
 
@@ -187,7 +184,7 @@ footer{ background: var(--dark-bg); color: #334155; text-align: center; padding:
     <h1>全球智能通信解决方案平台</h1>
     <p>专注正规实名手机卡、全网大流量卡及全方位通信服务。以技术筑底，为您提供稳定、安全、合规的高性能网络连接体验。</p>
     <div class="btn-container">
-        <a href="#contact" class="btn"><i class="fa-solid fa-comments"></i> 立即咨询客服</a>
+        <a href="https://t.me/bbc1992bbc" target="_blank" class="btn"><i class="fa-solid fa-comments"></i> 立即咨询客服</a>
         <a href="https://mkxssd.com" class="btn btn-secondary" target="_blank" rel="noopener">访问主官方网站 →</a>
     </div>
 </section>
